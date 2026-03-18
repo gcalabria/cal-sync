@@ -218,4 +218,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) {
         syncTimer?.invalidate()
     }
+
+    // MARK: - App Reopen
+
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        // When the user launches the app again while it's already running, show the Settings window.
+        // This is especially useful if the status bar icon is hidden.
+        openSettings()
+        return true
+    }
 }
